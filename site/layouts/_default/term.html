@@ -1,0 +1,15 @@
+{{ define "main" }}
+
+<div class="mw7 center">
+  <h1 class="f2 lh-title b mb3 pa3">{{ .Title }}</h1>
+  <ul id="blog-list" class="flex-ns flex-wrap mhn1-ns pa3">
+    {{ range (.Paginator 4).Pages.ByPublishDate.Reverse }}
+      <li class="w-50-ns ph1-ns flex">
+        {{ .Render "li" }}
+      </li>
+    {{ end }}
+  </ul>
+  {{ partial "pagination" . }}
+</div>
+
+{{ end }}

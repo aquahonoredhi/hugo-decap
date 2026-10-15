@@ -2,7 +2,10 @@ baseurl = "/"
 languageCode = "en-us"
 languageLang = "en"
 title = "Talawanda Tribune"
-disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
+disableKinds = ["RSS"]
+
+[taxonomies]
+category = "categories"
 
 [params]
 images = ["img/og-image.jpg"]
