@@ -21,6 +21,10 @@
 
 		<li><a href="/post" class="pa3 no-underline db">Blog</a></li>
 
+		{{ range .Site.Data.navigation.links }}
+			<li><a href="{{ printf "/%s/%s/" .taxonomy (urlize .term) | relURL }}" class="pa3 no-underline db">{{ .label }}</a></li>
+		{{ end }}
+
 		<li><a href="/contact" class="pa3 no-underline db">Contact</a></li>
 	</ul>
 
