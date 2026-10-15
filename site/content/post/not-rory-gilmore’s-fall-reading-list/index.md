@@ -1,5 +1,6 @@
 ---
 title: "Not Rory Gilmore’s Fall Reading List  "
+author: Chloe Jeong
 date: 2026-10-15T16:04:51.729Z
 description: >-
   As the temperature starts to fall and the leaves follow suit, the season of
@@ -7,6 +8,8 @@ description: >-
   then curled up inside with a good book?  
 
   However, we all know trying to find a good book is no joke especially at this time of year with all the sports and school, where to start, what book to pick? You barely have time to finish your homework, you don’t have time to go find another book. No worries we got you! Grab your coffee and a pen ‘cause you’ll want to write these down. Here are our top ten book recommendations for the fall this year:
+categories:
+  - Books
 ---
 1. *Trust Fall* by Lynn Painter - From the author of our beloved *Better Than the Movies*, Lynn Painter once more gives us an enemies-to-lovers rom-com in the form of *Trust Fall*. In her newest novel a small town girl inherits a fortune and moves to Manhattan where she is thrown into the life of an heir in which she meets a mysterious stranger…  
 2. *The Third Gilmore Girl* by Kelly Bishop and *Have I Told You This Already?* by Lauren Graham - For fans of Gilmore Girls (everyone’s favorite comfort show) these memoirs are must reads. Whether you’re in the mood for an elegant read from Emily Gilmore herself or want some of Lorelai’s lighthearted and humorous reflections you’ll be sure to find them and learn more about Gilmore Girls from behind the scenes and the actors backgrounds as rising stars in the film industry. 
