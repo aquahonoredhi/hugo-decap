@@ -23,8 +23,10 @@ const activityStatus = document.getElementById("cms-activity-status");
 const activityIcon = document.getElementById("cms-activity-status-icon");
 const activityMessage = document.getElementById("cms-activity-status-message");
 const netlifyDeployBadge = document.getElementById("netlify-deploy-status-badge");
+const netlifyDeployStatus = document.getElementById("netlify-deploy-status");
 const netlifyDeployBadgeUrl = "https://api.netlify.com/api/v1/badges/83ffb5ff-9927-498a-840a-49cdadf8a127/deploy-status";
 let statusTimeout;
+let isAuthenticated = false;
 
 function showActivityStatus(message, isActive) {
   window.clearTimeout(statusTimeout);
@@ -45,7 +47,32 @@ function refreshNetlifyDeployStatus() {
   netlifyDeployBadge.src = `${netlifyDeployBadgeUrl}?refresh=${Date.now()}`;
 }
 
-window.setInterval(refreshNetlifyDeployStatus, 60000);
+function setAuthenticated(user) {
+  isAuthenticated = Boolean(user);
+  netlifyDeployStatus.classList.toggle("is-authenticated", isAuthenticated);
+
+  if (isAuthenticated) {
+    refreshNetlifyDeployStatus();
+    return;
+  }
+
+  window.clearTimeout(statusTimeout);
+  activityStatus.style.display = "none";
+}
+
+const netlifyIdentity = window["netlifyIdentity"];
+
+if (netlifyIdentity) {
+  netlifyIdentity.on("init", setAuthenticated);
+  netlifyIdentity.on("login", setAuthenticated);
+  netlifyIdentity.on("logout", () => setAuthenticated(null));
+}
+
+window.setInterval(() => {
+  if (isAuthenticated) {
+    refreshNetlifyDeployStatus();
+  }
+}, 60000);
 
 CMS.registerEventListener({
   name: "preSave",

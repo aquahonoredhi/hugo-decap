@@ -19,7 +19,7 @@
       padding: 10px 14px;
       position: fixed;
       right: 16px;
-      top: 56px;
+      bottom: 60px;
       z-index: 9999;
     }
 
@@ -50,13 +50,17 @@
       border-radius: 6px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
       color: #243b53;
-      display: flex;
+      display: none;
       gap: 10px;
       padding: 10px 14px;
       position: fixed;
       right: 16px;
-      top: 16px;
+      bottom: 16px;
       z-index: 9998;
+    }
+
+    #netlify-deploy-status.is-authenticated {
+      display: flex;
     }
 
     #netlify-deploy-status img {
