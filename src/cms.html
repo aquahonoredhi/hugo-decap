@@ -1,14 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Content Manager</title>
 
+  <style>
+    #cms-activity-status {
+      align-items: center;
+      background: #fff;
+      border: 1px solid #d9e2ec;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      color: #243b53;
+      display: none;
+      gap: 8px;
+      padding: 10px 14px;
+      position: fixed;
+      right: 16px;
+      top: 56px;
+      z-index: 9999;
+    }
+
+    #cms-activity-status-icon {
+      align-items: center;
+      border: 2px solid currentColor;
+      border-radius: 50%;
+      display: inline-flex;
+      height: 16px;
+      justify-content: center;
+      width: 16px;
+    }
+
+    #cms-activity-status.is-active #cms-activity-status-icon {
+      animation: cms-activity-spin 1s linear infinite;
+      border-bottom-color: transparent;
+    }
+
+    #cms-activity-status.is-complete #cms-activity-status-icon {
+      border: 0;
+      font-weight: 700;
+    }
+
+    #netlify-deploy-status {
+      align-items: center;
+      background: #fff;
+      border: 1px solid #d9e2ec;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      color: #243b53;
+      display: flex;
+      gap: 10px;
+      padding: 10px 14px;
+      position: fixed;
+      right: 16px;
+      top: 16px;
+      z-index: 9998;
+    }
+
+    #netlify-deploy-status img {
+      display: block;
+      height: 20px;
+      width: 118px;
+    }
+
+    @keyframes cms-activity-spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
+    <a id="netlify-deploy-status"
+      href="https://app.netlify.com/sites/83ffb5ff-9927-498a-840a-49cdadf8a127/deploys"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="View Netlify deployment status">
+      <span>Netlify deploy:</span>
+      <img
+        id="netlify-deploy-status-badge"
+        src="https://api.netlify.com/api/v1/badges/83ffb5ff-9927-498a-840a-49cdadf8a127/deploy-status"
+        alt="Loading deployment status">
+    </a>
+    <div id="cms-activity-status" role="status" aria-live="polite">
+      <span id="cms-activity-status-icon" aria-hidden="true"></span>
+      <span id="cms-activity-status-message"></span>
+    </div>
     <script src="<%= htmlWebpackPlugin.publicPath %>/<%= htmlWebpackPlugin.files.js[1] %>"></script>
 </body>
 </html>
